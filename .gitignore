@@ -2,6 +2,4 @@
 *.zip
 *.npz
 node_modules/
-runs/
-*.pt
 *.csv
