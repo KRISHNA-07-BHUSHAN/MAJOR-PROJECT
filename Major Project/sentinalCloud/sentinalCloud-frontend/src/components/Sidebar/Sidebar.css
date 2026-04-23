@@ -1,0 +1,183 @@
+/* Refined SideBar.css (Fixing Overlap) */
+
+/* Base styles for the sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: var(--sidebar-bg); /* Use App.css variable */
+  color: var(--text-secondary);     /* Use App.css variable */
+  border-right: 1px solid var(--border-color); /* Use App.css variable */
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
+  position: fixed; /* Keep fixed positioning */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Collapsed state */
+.sidebar[data-is-open="false"] {
+  width: var(--sidebar-width-collapsed); /* Use App.css variable */
+}
+
+/* Expanded state */
+.sidebar[data-is-open="true"] {
+  width: var(--sidebar-width); /* Use App.css variable */
+}
+
+/* Header: Logo and Toggle Button */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Default: space between logo and button */
+  padding: 1rem;
+  height: var(--topbar-height, 64px); /* Match TopBar height */
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+/* When closed, center the button */
+.sidebar[data-is-open="false"] .sidebar-header {
+  justify-content: center;
+}
+
+
+.sidebar-logo-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out 0.1s; /* Slight delay */
+  color: var(--text-primary); /* Use App.css variable */
+  /* --- REMOVED Absolute Positioning --- */
+  /* position: absolute; */
+  /* left: 1rem; */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  pointer-events: none; /* Still prevent interaction when invisible */
+  margin-right: 0.5rem; /* Add some space between logo and button when visible */
+}
+.sidebar-logo-text[data-is-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Hide logo completely when collapsed */
+.sidebar[data-is-open="false"] .sidebar-logo-text {
+    display: none;
+}
+
+
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary); /* Use App.css variable */
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.3s ease;
+  z-index: 1; /* Ensure button is clickable */
+  flex-shrink: 0; /* Prevent button shrinking */
+}
+.sidebar-toggle-btn:hover {
+  background-color: var(--bg-tertiary); /* Use App.css variable */
+  color: var(--text-primary);
+}
+/* Keep rotation effect */
+.sidebar[data-is-open="false"] .sidebar-toggle-btn {
+  transform: rotate(180deg);
+}
+
+
+/* Main Navigation & Bottom Section */
+.sidebar-nav,
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0 0.75rem; /* 12px horizontal padding */
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between header and nav */
+  flex-grow: 1; /* Allow nav to take space */
+  overflow-y: auto; /* Allow scrolling if many items */
+}
+.sidebar-bottom {
+    padding-bottom: 1rem; /* Padding at the very bottom */
+    flex-shrink: 0; /* Keep bottom section visible */
+}
+
+
+/* --- (Keep NavLink, Tooltip, ThemeToggle styles using theme variables as refined before) --- */
+/* Navigation Link Styling */
+.nav-link, .theme-toggle { /* Apply base styles to both */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+.nav-link:hover, .theme-toggle:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+.nav-link.active {
+  background-color: rgba(var(--focus-ring-rgb), 0.15);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.nav-link .lucide, .theme-toggle .lucide {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+.nav-link:hover .lucide, .theme-toggle:hover .lucide,
+.nav-link.active .lucide {
+  color: var(--text-primary);
+}
+.nav-link-text {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out 0.1s;
+  color: inherit;
+  font-size: 0.9rem;
+}
+.nav-link-text[data-is-open="true"] {
+  opacity: 1;
+}
+.sidebar[data-is-open="false"] .nav-link:hover .nav-link-text,
+.sidebar[data-is-open="false"] .theme-toggle:hover .nav-link-text {
+  position: absolute;
+  left: calc(var(--sidebar-width-collapsed) + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border: 1px solid var(--border-color);
+}
+.theme-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}

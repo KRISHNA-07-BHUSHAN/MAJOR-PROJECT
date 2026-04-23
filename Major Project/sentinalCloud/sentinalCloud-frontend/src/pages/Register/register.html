@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelCloud – Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="register-container">
+
+    <h1 class="title">SentinelCloud</h1>
+    <p class="subtitle">Create Your Account</p>
+
+    <form class="register-box" id="registerForm">
+
+        <div class="form-grid">
+
+            <!-- FULL NAME -->
+            <div class="form-field full-width">
+                <label>Full Name</label>
+                <input id="fullName" type="text" placeholder="Enter your name">
+                <p id="nameError" class="error-text"></p>
+            </div>
+
+            <!-- DATE OF BIRTH -->
+            <div class="form-field full-width">
+                <label>Date of Birth</label>
+                <input id="dobInput" type="date">
+                <p id="dobError" class="error-text"></p>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-field full-width">
+                <label>Email</label>
+                <input id="emailInput" type="text" placeholder="Enter email">
+                <p id="emailError" class="error-text"></p>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-field">
+                <label>Password</label>
+                <div class="password-wrap">
+                    <input id="passwordInput" type="password" placeholder="Enter password">
+                    <span id="togglePassword" class="toggle-pass">👁️</span>
+                </div>
+                <p id="passwordError" class="error-text"></p>
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="form-field">
+                <label>Confirm Password</label>
+                <input id="confirmPassword" type="password" placeholder="Re-enter password">
+                <p id="confirmError" class="error-text"></p>
+            </div>
+
+            <!-- PHONE -->
+            <div class="form-field">
+                <label>Phone Number (Optional)</label>
+                <input id="phoneInput" type="text" placeholder="Enter phone number">
+            </div>
+
+            <!-- ORGANIZATION -->
+            <div class="form-field">
+                <label>Organization (Optional)</label>
+                <input id="orgInput" type="text" placeholder="Enter organization name">
+            </div>
+
+        </div>
+
+        <button type="button" id="registerBtn" class="register-btn">Register</button>
+
+        <p class="login-text">
+            Already have an account? <a href="../Login/login.html">Login</a>
+        </p>
+
+    </form>
+
+</div>
+
+<script src="register.js"></script>
+
+</body>
+</html>

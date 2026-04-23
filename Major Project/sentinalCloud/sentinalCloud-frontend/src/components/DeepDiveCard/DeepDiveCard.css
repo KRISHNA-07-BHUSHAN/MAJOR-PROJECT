@@ -1,0 +1,144 @@
+/* Refined DeepDiveCard.css (Using App.css Variables) */
+
+/* --- REMOVED Redundant :root block --- */
+/* --- REMOVED Redundant .dark block --- */
+
+.deep-dive-card {
+  width: 100%;
+  height: 100%; /* Consider max-height if needed */
+  /* max-height: calc(100vh - 4rem); */
+  background-color: var(--card-bg); /* Use global card background */
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color); /* Use global border */
+  color: var(--text-primary); /* Use global text */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  overflow-y: auto;
+}
+
+.deep-dive-header {
+  text-align: center;
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color); /* Use global border */
+  flex-shrink: 0;
+  color: var(--text-primary); /* Ensure header uses primary text */
+}
+
+.deep-dive-meta {
+  font-size: 0.875rem;
+  color: var(--text-secondary); /* Use global secondary text */
+  text-align: center;
+  margin-top: -0.75rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Styles for placeholder, loading, and error states */
+.deep-dive-empty,
+.deep-dive-loading,
+.deep-dive-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  color: var(--text-secondary); /* Use global secondary text */
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.deep-dive-error p {
+  color: var(--error-color); /* Use global error text color */
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Confidence Gauge Styles */
+.confidence-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0 1rem 0;
+  flex-shrink: 0;
+}
+
+.gauge-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary); /* Use global primary text */
+  /* Use global variables for the gradient */
+  background: radial-gradient(closest-side, var(--card-bg) 79%, transparent 80% 100%),
+              conic-gradient(var(--accent-color) var(--confidence-percent, 0%), var(--border-color) 0); /* Gauge fill = accent, Gauge bg = border */
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.gauge-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary); /* Use global secondary text */
+  font-weight: 500;
+}
+
+/* SHAP Waterfall Area */
+.shap-waterfall-container {
+  width: 100%;
+  min-height: 250px;
+  margin-bottom: 1rem;
+  /* Styles specific to the chart (colors, fonts) should be set in SHAPWaterfall.jsx Chart.js options */
+}
+
+/* Features List Styles */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color); /* Use global border */
+}
+
+.features-header {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary); /* Use global secondary text */
+  margin-bottom: 0.25rem;
+}
+.attack-summary-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.attack-summary-box h4 {
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.attack-meaning {
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+}
+
+.prevention-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-primary);
+}
+
+.prevention-list li {
+  margin-bottom: 6px;
+}

@@ -1,0 +1,39 @@
+/* Refined SHAPWaterfall.css (Using App.css Variables) */
+
+/* --- REMOVED Redundant :root block --- */
+/* --- REMOVED Redundant .dark block --- */
+
+.shap-waterfall-container {
+  width: 100%;
+  /* Define height for the chart canvas area */
+  /* Adjust this height as needed for your layout */
+  height: 350px;
+  position: relative; /* Important for Chart.js responsiveness */
+  margin-bottom: 1rem; /* Space below the chart */
+}
+
+.shap-header {
+  margin-bottom: 0.75rem; /* 12px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-secondary); /* Use global variable */
+}
+
+.shap-placeholder {
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--text-secondary); /* Use global variable */
+  font-style: italic;
+  padding: 2rem 0; /* More padding for placeholder */
+  height: 100%; /* Fill container if placeholder is shown */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chart.js usually handles canvas styling, but you can add base styles if needed */
+.shap-waterfall-container canvas {
+  max-width: 100%; /* Ensure canvas doesn't overflow container */
+  /* Chart.js options control fonts/colors within the chart itself */
+}

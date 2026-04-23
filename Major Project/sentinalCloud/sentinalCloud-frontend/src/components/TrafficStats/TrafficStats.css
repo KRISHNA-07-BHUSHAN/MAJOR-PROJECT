@@ -1,0 +1,41 @@
+.traffic-stats {
+  width: 100%;
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.traffic-stats-header {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Styling for Recharts library elements */
+.traffic-stats .recharts-wrapper .recharts-cartesian-grid-line {
+  stroke: var(--border-color); /* Make grid lines match theme */
+}
+
+.traffic-stats .recharts-wrapper .recharts-text {
+  fill: var(--text-color); /* Make axis labels match theme */
+  opacity: 0.7;
+}
+
+.traffic-stats-tooltip {
+  background-color: var(--sidebar-bg) !important; /* Override recharts default */
+  border: 1px solid var(--border-color) !important;
+  border-radius: 6px;
+  padding: 10px !important;
+}
+
+.traffic-stats-tooltip .recharts-tooltip-label {
+  color: var(--text-color);
+  font-weight: 600;
+}

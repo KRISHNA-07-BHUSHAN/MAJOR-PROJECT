@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelCloud - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="login-container">
+    <h1 class="title">SentinelCloud</h1>
+    <p class="subtitle">Secure Login</p>
+
+    <form class="login-box" id="loginForm">
+
+        <!-- EMAIL -->
+        <label>Email</label>
+        <input id="emailInput" type="text" placeholder="Enter email">
+        <p id="emailError" class="error-text"></p>
+
+        <label>Password</label>
+        <div class="password-wrap">
+            <input id="passwordInput" type="password" placeholder="Enter password">
+            <span id="togglePassword" class="toggle-pass">👁️</span>
+        </div>
+
+        <p id="passwordError" class="password-error"></p>
+
+        <!-- Forgot Password -->
+        <div class="links">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <!-- LOGIN BUTTON -->
+        <button type="button" id="loginBtn" class="login-btn">Login</button>
+
+        <p class="register-text">
+            Don’t have an account? <a href="../Register/register.html">Register</a>
+        </p>
+    </form>
+
+</div>
+
+<!-- ROLE SELECTION MODAL -->
+    <div id="roleModal" class="modal-overlay">
+        <div class="modal-box">
+            <h2>Select Your Role</h2>
+
+            <button class="role-btn" id="btnGuardian">
+                Security Admin
+            </button>
+
+            <button class="role-btn" id="btnAnalyst">
+                Security Analyst
+            </button>
+
+            <button class="close-btn" id="closeModal">Cancel</button>
+        </div>
+        
+    </div>
+    <!-- FORGOT PASSWORD MODAL -->
+    <div id="forgotModal" class="modal-overlay">
+        <div class="modal-box">
+            <h2>Reset Password</h2>
+
+            <input id="forgotEmail" type="text" placeholder="Enter your email" class="forgot-input">
+
+            <p id="forgotError" class="error-text"></p>
+
+            <button id="forgotSubmit" class="role-btn">Submit</button>
+            <button id="closeForgot" class="close-btn">Cancel</button>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

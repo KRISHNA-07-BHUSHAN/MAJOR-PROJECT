@@ -1,0 +1,12 @@
+names:
+- Pothole
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: pothole-2-ym5pm
+  url: https://universe.roboflow.com/school-kwzhr/pothole-2-ym5pm/dataset/1
+  version: 1
+  workspace: school-kwzhr
+test: C:/Users/My PC/Desktop/Mini-Proj/CODE/ultralytics/datasets/POTHOLE-2-1/test/images
+train: C:/Users/My PC/Desktop/Mini-Proj/CODE/ultralytics/datasets/POTHOLE-2-1/train/images
+val: C:/Users/My PC/Desktop/Mini-Proj/CODE/ultralytics/datasets/POTHOLE-2-1/valid/images

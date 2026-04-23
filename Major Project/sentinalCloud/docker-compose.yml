@@ -1,0 +1,31 @@
+services:
+  sentinalcloud-backend:
+    build:
+      context: ./sentinalCloud-backend
+      dockerfile: Dockerfile
+    container_name: sentinalcloud-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./sentinalCloud-backend/app:/code/app
+      - ./sentinalCloud-backend/saved_models:/code/saved_models
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  sentinalcloud-frontend:
+    build:
+      context: ./sentinalCloud-frontend
+      dockerfile: Dockerfile.dev
+    container_name: sentinalcloud-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      # --- DEFINITIVE FIX for Permission Denied ---
+      # 1. Mount the entire source code directory for hot-reloading.
+      - ./sentinalCloud-frontend:/app
+      # 2. Use an anonymous volume to "hide" the host's node_modules.
+      # This forces the container to use its own node_modules, which was
+      # created during the build and has the correct Linux permissions.
+      - /app/node_modules
+    command: npm run dev
+    depends_on:
+      - sentinalcloud-backend

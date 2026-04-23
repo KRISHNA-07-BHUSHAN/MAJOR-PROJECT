@@ -1,0 +1,195 @@
+/* Refined src/components/Radar/Radar.css (Using App.css Variables) */
+
+/* --- REMOVED Local variable definitions --- */
+
+.radar-container {
+  flex: 1; /* Allow container to take space if needed */
+  display: flex;
+  flex-direction: column; /* Stack circle and controls */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 350px; /* Ensure space for radar + controls */
+  width: 100%; /* Take full width of parent column */
+  max-width: 400px; /* Optional: prevent radar becoming huge */
+  padding-bottom: 70px; /* Space for controls below */
+}
+
+.radar-circle {
+  /* Use a fixed, stable size */
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: relative; /* Context for children */
+  border: 2px solid var(--accent-color); /* Use accent for strong line */
+  background-color: var(--bg-tertiary); /* Use tertiary for background */
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(var(--focus-ring-rgb), 0.3); /* Use accent RGB for glow */
+  flex-shrink: 0; /* Prevent circle shrinking */
+}
+
+.radar-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.circle-grid {
+  position: absolute;
+  /* Use border color for faint lines */
+  border: 1px solid var(--border-color);
+  opacity: 0.5; /* Make grid lines fainter */
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Use percentages for grid lines */
+.circle1 { width: 25%; height: 25%; }
+.circle2 { width: 50%; height: 50%; }
+.circle3 { width: 75%; height: 75%; }
+.circle4 { width: 100%; height: 100%; } /* Sits just inside border */
+
+.radar-cross-lines::before,
+.radar-cross-lines::after {
+  content: '';
+  position: absolute;
+  background-color: var(--border-color); /* Use border color */
+  opacity: 0.5;
+}
+
+.radar-cross-lines::before {
+  width: 100%;
+  height: 1px;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+}
+.radar-cross-lines::after {
+  height: 100%;
+  width: 1px;
+  left: 50%; top: 0;
+  transform: translateX(-50%);
+}
+
+/* Radar sweep animation */
+.radar-sweep {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  /* Use accent color for sweep */
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 270deg,
+    rgba(var(--focus-ring-rgb), 0.15) 310deg, /* Use accent RGB */
+    rgba(var(--focus-ring-rgb), 0.3) 360deg
+  );
+  border-radius: 50%;
+  animation: sweep 4s linear infinite;
+  opacity: 0.8;
+}
+
+/* Blip animation */
+.radar-blip {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  /* background-color set by inline style */
+  box-shadow: 0 0 8px currentColor; /* Glow with the blip's color */
+  animation: blipFadeIn 0.3s ease-out,
+             blipPulse 1.5s ease-in-out infinite 0.3s;
+  transform: translate(-50%, -50%); /* Center the blip */
+}
+
+/* Styles for simulation controls */
+.radar-controls {
+  position: absolute;
+  bottom: 0px; /* Position controls below the circle */
+  display: flex;
+  gap: 15px; /* Increased gap */
+  z-index: 10;
+}
+
+.radar-controls button {
+  background-color: transparent; /* Transparent background */
+  border: 1px solid var(--accent-color); /* Accent border */
+  color: var(--accent-color); /* Accent text */
+  font-family: inherit; /* Use global font */
+  padding: 8px 16px; /* Adjusted padding */
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.radar-controls button:hover {
+  background-color: var(--accent-color);
+  color: var(--button-text); /* Use button text color (white/black) */
+  box-shadow: 0 0 10px rgba(var(--focus-ring-rgb), 0.5);
+}
+
+.radar-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent; /* Keep transparent */
+  border-color: var(--text-muted); /* Use muted color for border */
+  color: var(--text-muted); /* Use muted color for text */
+  box-shadow: none;
+}
+
+/* --- NEW STYLE for Stop Button --- */
+.radar-controls .button-stop {
+  border-color: var(--severity-high-text);
+  color: var(--severity-high-text);
+  background-color: var(--severity-high-bg);
+}
+
+.radar-controls .button-stop:hover {
+  border-color: var(--severity-high-text);
+  color: var(--button-text); /* Or var(--severity-high-text) */
+  background-color: var(--severity-high-text); /* Invert on hover */
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5); /* Assuming high-sev is red */
+}
+/* --- END NEW STYLE --- */
+
+
+/* --- ADDED Error Style --- */
+.radar-error {
+    position: absolute;
+    top: -20px; /* Position above radar */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--severity-high-bg);
+    color: var(--severity-high-text);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--severity-high-text);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    z-index: 10;
+    text-align: center;
+    max-width: 90%;
+    white-space: normal; /* Allow wrapping */
+}
+
+
+/* Keyframe Animations (remain the same) */
+@keyframes blipFadeIn {
+  from { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes blipPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.7; }
+}
+
+@keyframes sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

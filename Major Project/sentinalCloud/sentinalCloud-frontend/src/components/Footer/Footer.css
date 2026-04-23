@@ -1,0 +1,23 @@
+/* Refined Footer.css (Using App.css Variables) */
+
+/* --- REMOVED Redundant :root block --- */
+/* --- REMOVED Redundant .dark block --- */
+
+.footer {
+  width: 100%; /* Take full width of its container */
+  padding: 1rem 1.5rem; /* Standard padding (16px 24px) */
+  background-color: var(--bg-secondary); /* Use secondary background */
+  color: var(--text-secondary); /* Use secondary text color */
+  font-size: 0.875rem; /* Standard small text size (14px) */
+  text-align: center;
+  border-top: 1px solid var(--border-color); /* Use global border color */
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+  margin-top: auto; /* Pushes footer down in flex column layouts */
+}
+
+/* Ensure paragraph inside footer also uses theme color */
+.footer p {
+    margin: 0; /* Remove default paragraph margin */
+    color: var(--text-secondary); /* Explicitly set color */
+}

@@ -1,0 +1,145 @@
+/* Background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0f16;
+    height: 100vh;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, #1b2735, #090c10);
+    filter: blur(40px);
+    z-index: -1;
+}
+
+/* Main container */
+.register-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 3% auto;
+    text-align: center;
+    color: white;
+}
+
+/* Title */
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #aab6c4;
+    margin-bottom: 25px;
+}
+
+/* Big Register Box */
+.register-box {
+    background: rgba(20, 30, 45, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+/* Two-column responsive grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Full-width items */
+.full-width {
+    grid-column: span 2;
+}
+
+/* Form field wrapper */
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+label {
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #293241;
+    background: #141b27;
+    color: #d0d8e1;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #4091ff;
+}
+
+/* Password toggle */
+.password-wrap {
+    position: relative;
+}
+
+.toggle-pass {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    cursor: pointer;
+    color: #9aa7b6;
+}
+
+/* Error messages */
+.error-text {
+    font-size: 13px;
+    color: #ff4d4d;
+    margin-top: 4px;
+    min-height: 16px;
+}
+
+/* Register Button */
+.register-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    font-size: 18px;
+    background: #4091ff;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: #2c73dd;
+}
+
+/* Login link */
+.login-text {
+    margin-top: 15px;
+    color: #a5afba;
+}
+
+.login-text a {
+    color: #4091ff;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+/* GREEN success message for strong password */
+.error-text.valid {
+    color: #36ff8a !important;  /* bright green */
+    font-weight: 500;
+}

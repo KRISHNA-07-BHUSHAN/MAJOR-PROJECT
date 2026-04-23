@@ -1,0 +1,147 @@
+/* Refined src/components/EventQueue/EventQueue.css (Internal Scroll) */
+
+.event-queue {
+  /* Inherit general card styles if applied via className="card event-queue" */
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary); /* Use primary text */
+  padding: 1rem; /* Consistent padding */
+
+  /* --- CRITICAL FOR INTERNAL SCROLL --- */
+  display: flex;
+  flex-direction: column;
+  
+  /* --- This forces a max height, which will make the list scroll --- */
+  max-height: 400px; 
+  /* You can change this value (e.g., '50vh' for 50% of viewport height) */
+
+  overflow: hidden; /* Hide overflow on the main container */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  min-height: 200px; /* Ensure some minimum size */
+}
+
+/* Assuming the H3 inside uses card-title */
+.event-queue .card-title {
+  /* Styles inherited from PageStyles.css */
+  flex-shrink: 0; /* Prevent header from shrinking */
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  /* No text-align needed if already centered in PageStyles */
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;   /* <<<< Make THIS element scroll */
+  overflow-x: hidden;
+  flex-grow: 1;     /* <<<< Allow list to fill remaining space */
+  min-height: 0;      /* Fix potential flex overflow issues */
+  /* Style scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
+}
+
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem; /* Adjust padding */
+  margin-bottom: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8125rem; /* 13px */
+  border-left: 3px solid transparent; /* Accent border for selection */
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.3s ease; /* Added opacity transition */
+  color: var(--text-secondary); /* Default item text */
+}
+.event-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.event-item:hover {
+  background-color: var(--bg-tertiary); /* Use tertiary for hover */
+}
+
+.event-item.selected {
+  background-color: rgba(var(--focus-ring-rgb), 0.15); /* Use accent color */
+  border-left-color: var(--accent-color);
+  color: var(--text-primary); /* Make selected text brighter */
+}
+
+/* Differentiate event types */
+.event-item.attack .event-label,
+.event-item.attack .event-confidence {
+  color: var(--error-color); /* Use error color for attacks */
+  font-weight: 500;
+}
+.event-item.normal .event-label {
+  /* Default color is --text-secondary */
+}
+.event-item.normal .event-confidence {
+    color: var(--text-secondary);
+}
+
+
+.event-label {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 0.5rem;
+}
+.event-time {
+    font-size: 0.75rem;
+    color: var(--text-muted); /* Use muted for time */
+    padding-right: 0.5rem;
+    flex-shrink: 0;
+}
+.event-confidence {
+    font-weight: 500;
+    min-width: 45px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+
+.no-events { /* Renamed from .empty-queue-message */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Allow message to fill space if list is empty */
+  height: 100%; /* Ensure it tries to fill */
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1rem;
+  min-height: 100px; /* Ensure message area has some height */
+}
+
+/* --- UPDATED STYLE: Make items dull when stopped --- */
+.event-item.stopped {
+  opacity: 0.6;
+  color: var(--text-muted);
+  /* --- REMOVED: cursor: default; --- */
+}
+
+.event-item.stopped:hover {
+  /* --- REMOVED: background-color: transparent; --- */
+  /* It will now use the default hover effect */
+  background-color: var(--bg-tertiary);
+}
+
+/* Ensure selected item also looks dull but remains clear */
+.event-item.stopped.selected {
+  opacity: 0.8; /* Make selected a bit less dull */
+  background-color: rgba(var(--focus-ring-rgb), 0.05);
+  border-left-color: var(--text-muted);
+}
+
+/* Ensure attack labels are also dulled */
+.event-item.stopped.attack .event-label,
+.event-item.stopped.attack .event-confidence {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+/* --- END NEW STYLE --- */

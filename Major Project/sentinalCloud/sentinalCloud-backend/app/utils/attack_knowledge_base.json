@@ -1,0 +1,129 @@
+{
+  "Normal": {
+    "meaning": "Normal traffic represents legitimate and safe network behavior with no malicious intent.",
+    "prevention": [
+      "No prevention required.",
+      "Maintain regular monitoring."
+    ]
+  },
+
+  "DoS": {
+    "meaning": "A Denial-of-Service attack aims to overwhelm a system or service with excessive traffic to cause disruption.",
+    "prevention": [
+      "Enable rate limiting on servers.",
+      "Use firewall and WAF filtering rules.",
+      "Deploy network-level anomaly detection.",
+      "Block repeated malicious IPs."
+    ]
+  },
+
+  "DDoS": {
+    "meaning": "A Distributed DoS attack uses many compromised systems (botnets) to flood the target, making the service unavailable.",
+    "prevention": [
+      "Use cloud-based DDoS protection.",
+      "Deploy load balancers or traffic scrubbing.",
+      "Monitor sudden traffic spikes.",
+      "Block suspicious IP ranges."
+    ]
+  },
+
+  "Scan": {
+    "meaning": "Scanning attacks probe systems to find open ports, active hosts, or vulnerabilities before a larger attack.",
+    "prevention": [
+      "Restrict unused ports and services.",
+      "Enable IDS/IPS to detect port scanning.",
+      "Monitor repeated connection attempts.",
+      "Use strict firewall rules."
+    ]
+  },
+
+  "Brute Force": {
+    "meaning": "Brute force attacks try multiple password combinations until the correct one is found.",
+    "prevention": [
+      "Enable account lockout policies.",
+      "Use multi-factor authentication.",
+      "Monitor failed login attempts.",
+      "Use IP blocking for repeated attacks."
+    ]
+  },
+
+  "SQL Injection": {
+    "meaning": "SQL Injection exploits insecure input handling to inject malicious SQL queries into a database.",
+    "prevention": [
+      "Use prepared statements and parameterized queries.",
+      "Enable input validation and sanitization.",
+      "Deploy a Web Application Firewall (WAF).",
+      "Limit database privileges for applications."
+    ]
+  },
+
+  "XSS": {
+    "meaning": "Cross-site scripting injects malicious scripts into trusted websites to steal data or hijack user sessions.",
+    "prevention": [
+      "Escape and validate user input.",
+      "Enable Content Security Policy (CSP).",
+      "Sanitize HTML outputs.",
+      "Use frameworks that auto-escape code."
+    ]
+  },
+
+  "Botnet": {
+    "meaning": "A botnet attack uses a network of compromised devices to perform malicious activities such as DDoS or spam.",
+    "prevention": [
+      "Monitor unusual outbound traffic.",
+      "Patch IoT and vulnerable devices.",
+      "Block communication with known C2 servers.",
+      "Use network behavior analysis tools."
+    ]
+  },
+
+  "Backdoor": {
+    "meaning": "Backdoor attacks bypass normal authentication to secretly gain access to a system.",
+    "prevention": [
+      "Scan for unauthorized accounts or scripts.",
+      "Apply system and firmware updates.",
+      "Use endpoint detection tools.",
+      "Monitor unexpected outgoing connections."
+    ]
+  },
+
+  "MITM": {
+    "meaning": "Man-in-the-Middle attacks intercept communication between parties to steal or modify data.",
+    "prevention": [
+      "Use HTTPS and strong encryption.",
+      "Enable secure VPNs for remote access.",
+      "Avoid public Wi-Fi for sensitive transactions.",
+      "Enable certificate pinning where possible."
+    ]
+  },
+
+  "Ransomware": {
+    "meaning": "Ransomware encrypts user or system data and demands payment for decryption.",
+    "prevention": [
+      "Maintain regular offline backups.",
+      "Use endpoint security and anti-malware tools.",
+      "Avoid opening unknown links or attachments.",
+      "Patch vulnerabilities promptly."
+    ]
+  },
+
+  "Privilege Escalation": {
+    "meaning": "Privilege escalation exploits vulnerabilities to gain higher-level access or root control over a system.",
+    "prevention": [
+      "Keep software patched and updated.",
+      "Use strict privilege separation.",
+      "Enable audit logs for sensitive actions.",
+      "Monitor unusual process activity."
+    ]
+  },
+
+  "Other": {
+    "meaning": "Miscellaneous older or dataset-specific attacks that do not fit into main categories.",
+    "prevention": [
+      "Follow standard cybersecurity hygiene.",
+      "Apply input validation.",
+      "Use firewalls and IDS.",
+      "Keep systems patched."
+    ]
+  }
+}

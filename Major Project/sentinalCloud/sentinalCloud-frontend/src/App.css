@@ -1,0 +1,319 @@
+/* Refined App.css */
+
+/* --- THEME & GLOBAL VARIABLES --- */
+
+:root {
+  /* --- Base colors (Dark Mode Default) --- */
+  --bg-primary: #0e1117;          /* Deep dark main background */
+  --bg-secondary: #161a21;        /* Slightly lighter for cards/sections */
+  --bg-tertiary: #20242c;         /* Hover/Subtle panels */
+  --border-color: #2a2e36;        /* Subtle borders */
+  --input-bg: #1f2229;
+
+  /* --- Text colors --- */
+  --text-primary: #f0f2f5;         /* Bright white/off-white */
+  --text-secondary: #a0a6b1;       /* Muted grey */
+  --text-muted: #6e7681;          /* Very soft grey */
+
+  /* --- Accent colors --- */
+  --accent-color: #00ffa3;         /* Bright Green */
+  --accent-hover: #33ffb8;
+  --focus-ring-color: var(--accent-color);
+  --focus-ring-rgb: 0, 255, 163;
+
+  /* --- Severity / Alert colors --- */
+  --severity-high-bg: rgba(255, 77, 77, 0.15); /* Red Background */
+  --severity-high-text: #ff4d4d;              /* Red Text */
+  --severity-medium-bg: rgba(255, 191, 0, 0.15);/* Yellow Background */
+  --severity-medium-text: #ffbf00;           /* Yellow Text */
+  --severity-low-bg: rgba(0, 255, 163, 0.12); /* Green Background */
+  --severity-low-text: var(--accent-color);   /* Green Text */
+
+  /* --- UI Element surfaces --- */
+  --card-bg: var(--bg-secondary);
+  --sidebar-bg: #11141a; /* Slightly darker than main bg for separation */
+  --success-color: var(--accent-color);
+  --warning-color: var(--severity-medium-text);
+  --error-color: var(--severity-high-text);
+  --button-text: #ffffff; /* Text on primary buttons */
+
+  /* --- Layout --- */
+  --sidebar-width: 220px;
+  --sidebar-width-collapsed: 72px; /* Standard collapsed width */
+}
+
+[data-theme="light"] {
+  /* --- Base colors --- */
+  --bg-primary: #f9fafb;           /* Off-white page background */
+  --bg-secondary: #ffffff;         /* White cards / content surfaces */
+  --bg-tertiary: #f3f4f6;         /* Subtle hover/panels */
+  --border-color: #e5e7eb;         /* Light grey borders */
+  --input-bg: #ffffff;
+
+  /* --- Text colors --- */
+  --text-primary: #111827;          /* Near-black */
+  --text-secondary: #4b5563;        /* Dark grey */
+  --text-muted: #6b7280;           /* Medium grey */
+
+  /* --- Accent colors --- */
+  --accent-color: #10b981;          /* Emerald Green */
+  --accent-hover: #059669;
+  --focus-ring-color: var(--accent-color);
+  --focus-ring-rgb: 16, 185, 129;
+
+  /* --- Severity / Alert colors --- */
+  --severity-high-bg: #fee2e2;      /* Light Red Background */
+  --severity-high-text: #dc2626;    /* Dark Red Text */
+  --severity-medium-bg: #fef3c7;    /* Light Yellow Background */
+  --severity-medium-text: #b45309;  /* Dark Yellow Text */
+  --severity-low-bg: #dcfce7;       /* Light Green Background */
+  --severity-low-text: #15803d;     /* Dark Green Text */
+
+  /* --- UI Element surfaces --- */
+  --card-bg: var(--bg-secondary);
+  --sidebar-bg: #ffffff;          /* White sidebar */
+  --success-color: var(--accent-color);
+  --warning-color: var(--severity-medium-text);
+  --error-color: var(--severity-high-text);
+  --button-text: #ffffff; /* Text on primary buttons */
+}
+
+/* --- Base Body Styles --- */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-primary); /* Use primary background */
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* Apply box-sizing globally */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* --- MAIN APP LAYOUT --- */
+.app-container {
+  display: flex;
+  min-height: 100vh; /* Use min-height */
+  width: 100vw;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  /* background set by body */
+}
+
+.main-section {
+  flex: 1; /* Take remaining width */
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Use fixed height for internal scrolling */
+  overflow: hidden; /* Prevent this section from causing body scroll */
+  transition: margin-left 0.3s ease-in-out; /* Match sidebar transition */
+  margin-left: var(--sidebar-width); /* Default margin for open sidebar */
+  /* Width is implicitly calculated by flex: 1 */
+}
+
+/* State when sidebar is closed */
+.main-section.sidebar-closed {
+  margin-left: var(--sidebar-width-collapsed); /* Use collapsed width */
+}
+
+.main-content-area {
+  flex-grow: 1; /* Take available vertical space */
+  overflow-y: auto; /* Allow ONLY this area to scroll */
+  padding: 25px; /* Your desired padding */
+  background-color: var(--bg-primary);
+   /* Use primary page background */
+}
+
+/* --- SHARED PAGE & CARD STYLES --- */
+.page-container {
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.page-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+.page-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+  color: var(--text-primary); /* Use primary text */
+}
+.page-header p {
+  margin: 5px 0 0 0;
+  color: var(--text-secondary); /* Use secondary text */
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-primary); /* Ensure text color inherits */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Softer shadow */
+  margin-bottom: 20px; /* Add default spacing below cards */
+}
+.card:last-child {
+    margin-bottom: 0;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: var(--text-primary);
+  padding-bottom: 10px; /* Reduced padding */
+  border-bottom: 1px solid var(--border-color);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.card-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary); /* Use secondary text */
+  line-height: 1.6;
+}
+.card-link {
+  color: var(--accent-color); /* Use accent color for links */
+  font-weight: 600;
+  text-decoration: none;
+}
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* --- GRID LAYOUTS --- */
+.card-grid, .stats-grid, .main-grid {
+  display: grid;
+  gap: 20px;
+}
+.card-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.stats-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Slightly smaller min */
+  margin-bottom: 25px;
+}
+.main-grid.two-columns {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.main-grid.three-columns {
+   /* Responsive 3-col: Start 1, grow as space allows */
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .main-grid.three-columns { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+@media (min-width: 1280px) {
+  .main-grid.three-columns { grid-template-columns: 250px 1fr 350px; } /* Your specific large layout */
+}
+
+
+/* --- FORM & UTILITY STYLES --- */
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-secondary); } /* Use secondary text */
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg); /* Use input background */
+  color: var(--text-primary);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(var(--focus-ring-rgb), 0.3);
+}
+
+.severity-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+}
+/* Use specific text/bg vars for badges */
+.severity-high { background-color: var(--severity-high-bg); color: var(--severity-high-text); }
+.severity-medium { background-color: var(--severity-medium-bg); color: var(--severity-medium-text); }
+.severity-low { background-color: var(--severity-low-bg); color: var(--severity-low-text); }
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+  /* On tablets, keep sidebar open state using collapsed margin */
+  .main-section.sidebar-open {
+    margin-left: var(--sidebar-width-collapsed);
+    width: calc(100% - var(--sidebar-width-collapsed));
+  }
+   .main-section.sidebar-closed {
+     margin-left: 0;
+     width: 100%;
+   }
+}
+
+@media (max-width: 768px) {
+  /* On mobile, sidebar is likely hidden/overlayed, main takes full width */
+  .main-section {
+    margin-left: 0 !important; /* Override other rules */
+    width: 100%;
+  }
+  .main-content-area {
+    padding: 15px; /* Reduce padding */
+  }
+  .page-header h1 { font-size: 1.5rem; }
+  .stats-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; } /* Smaller cards */
+  .card-grid, .main-grid.two-columns, .main-grid.three-columns {
+      grid-template-columns: 1fr; /* Stack everything */
+      gap: 15px;
+  }
+}
+
+/* --- GRADIENT HEADING EXAMPLES --- */
+/* Apply these classes to specific h1/h2 tags in your JSX */
+.gradient-heading-dark {
+  background: linear-gradient(90deg, #00ffa3, #42e695);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-heading-light {
+  background: linear-gradient(90deg, #10b981, #34d399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- OTHER COMPONENT STYLES --- */
+/* (Keep toggle switch, save status, form actions styles from your original) */
+.save-status { margin-bottom: 1rem; padding: 0.75rem 1rem; border-radius: 4px; font-weight: 500; text-align: center; }
+.save-status.success { background-color: var(--severity-low-bg); color: var(--severity-low-text); border: 1px solid var(--severity-low-text); }
+.save-status.error { background-color: var(--severity-high-bg); color: var(--severity-high-text); border: 1px solid var(--severity-high-text); }
+.toggle-group { margin-bottom: 1rem; }
+.toggle-label { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+.toggle-label span { color: var(--text-secondary); font-size: 0.9rem; } /* Slightly smaller label text */
+.toggle-switch { position: relative; display: inline-block; width: 40px; height: 20px; flex-shrink: 0; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-color); transition: .4s; border-radius: 20px; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--accent-color); } /* Use accent color */
+input:checked + .slider:before { transform: translateX(20px); }
+.form-actions { margin-top: 1.5rem; display: flex; justify-content: flex-end; align-items: center; gap: 1rem; }

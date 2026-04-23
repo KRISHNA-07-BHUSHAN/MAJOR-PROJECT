@@ -1,0 +1,49 @@
+.attack-summary {
+  width: 100%; /* Be flexible, let the parent grid decide the size */
+  background-color: var(--card-bg);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.attack-summary-header {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5px; /* Added some horizontal padding */
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  opacity: 0.8; /* De-emphasize the label text slightly */
+}
+
+.summary-value {
+  font-weight: 600; /* Make the numbers stand out */
+}
+
+/* Use theme variables for colors */
+.summary-value.attack {
+  color: var(--button-bg);
+}
+
+.summary-value.normal {
+  color: var(--success-color);
+}

@@ -1,0 +1,350 @@
+{
+    "evt_970bec27-a219-47ad-8634-877aafd51882": {
+        "raw_label": "back",
+        "grouped_label": "DoS",
+        "timestamp": "2025-11-22 07:24:33",
+        "features": [
+            {
+                "name": "logged_in",
+                "impact": 0.09572657418687748,
+                "value": 1.2356940507888794,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "hot",
+                "impact": 0.08359041867583587,
+                "value": -0.09507567435503006,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_serror_rate",
+                "impact": 0.07536848427578463,
+                "value": -0.624870777130127,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_count",
+                "impact": 0.06072061317551303,
+                "value": 0.7343425750732422,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_serror_rate",
+                "impact": 0.054172632476090866,
+                "value": -0.6395319104194641,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_rerror_rate",
+                "impact": 0.04747254311693638,
+                "value": -0.38763463497161865,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_count",
+                "impact": 0.04324268576192151,
+                "value": 1.2587542533874512,
+                "sign": "increases_attack"
+            }
+        ],
+        "shap_values": {},
+        "shap_image": null,
+        "meaning": "A Denial-of-Service attack aims to overwhelm a system or service with excessive traffic to cause disruption.",
+        "prevention": [
+            "Enable rate limiting on servers.",
+            "Use firewall and WAF filtering rules.",
+            "Deploy network-level anomaly detection.",
+            "Block repeated malicious IPs."
+        ]
+    },
+    "evt_e45cc698-e7b3-4efb-9b06-9eeac79cf26e": {
+        "raw_label": "loadmodule",
+        "grouped_label": "Privilege Escalation",
+        "timestamp": "2025-11-22 07:24:52",
+        "features": [
+            {
+                "name": "is_guest_login",
+                "impact": -0.055542765127872644,
+                "value": -0.09753094613552094,
+                "sign": "reduces_attack"
+            },
+            {
+                "name": "dst_host_srv_count",
+                "impact": -0.05418973753634915,
+                "value": -0.8821226358413696,
+                "sign": "reduces_attack"
+            },
+            {
+                "name": "dst_host_serror_rate",
+                "impact": -0.04284087933020692,
+                "value": 1.6087590456008911,
+                "sign": "reduces_attack"
+            },
+            {
+                "name": "hot",
+                "impact": 0.0406858258419768,
+                "value": -0.09507567435503006,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "num_shells",
+                "impact": -0.03313889562862651,
+                "value": -0.018609896302223206,
+                "sign": "reduces_attack"
+            },
+            {
+                "name": "dst_host_same_srv_rate",
+                "impact": -0.030452624310192876,
+                "value": -1.0051100254058838,
+                "sign": "reduces_attack"
+            },
+            {
+                "name": "num_failed_logins",
+                "impact": 0.029997177350999858,
+                "value": -0.027022818103432655,
+                "sign": "increases_attack"
+            }
+        ],
+        "shap_values": {},
+        "shap_image": null,
+        "meaning": "Privilege escalation exploits vulnerabilities to gain higher-level access or root control over a system.",
+        "prevention": [
+            "Keep software patched and updated.",
+            "Use strict privilege separation.",
+            "Enable audit logs for sensitive actions.",
+            "Monitor unusual process activity."
+        ]
+    },
+    "evt_1af0d2d7-00c3-4d9c-8832-4968ac9fc6b4": {
+        "raw_label": "back",
+        "grouped_label": "DoS",
+        "timestamp": "2025-11-22 07:25:07",
+        "features": [
+            {
+                "name": "logged_in",
+                "impact": 0.12672441909546822,
+                "value": 1.2356940507888794,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_serror_rate",
+                "impact": 0.07915389148497427,
+                "value": -0.624870777130127,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_rerror_rate",
+                "impact": 0.06674033357119286,
+                "value": -0.38763463497161865,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "hot",
+                "impact": 0.06049674864663328,
+                "value": -0.09507567435503006,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_serror_rate",
+                "impact": 0.048628549281674274,
+                "value": -0.6395319104194641,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "flag",
+                "impact": -0.041054594623005,
+                "value": 0.7511112689971924,
+                "sign": "reduces_attack"
+            },
+            {
+                "name": "dst_host_diff_srv_rate",
+                "impact": 0.03586787335005067,
+                "value": -0.4390781819820404,
+                "sign": "increases_attack"
+            }
+        ],
+        "shap_values": {},
+        "shap_image": null,
+        "meaning": "A Denial-of-Service attack aims to overwhelm a system or service with excessive traffic to cause disruption.",
+        "prevention": [
+            "Enable rate limiting on servers.",
+            "Use firewall and WAF filtering rules.",
+            "Deploy network-level anomaly detection.",
+            "Block repeated malicious IPs."
+        ]
+    },
+    "evt_6d98d2ac-bf35-4ea9-9b62-80503d3b70ee": {
+        "raw_label": "back",
+        "grouped_label": "DoS",
+        "timestamp": "2025-11-22 07:25:26",
+        "features": [
+            {
+                "name": "logged_in",
+                "impact": 0.09324698271206494,
+                "value": 1.2356940507888794,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_rerror_rate",
+                "impact": 0.058086843595551274,
+                "value": -0.38763463497161865,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_serror_rate",
+                "impact": 0.05481447249697167,
+                "value": -0.624870777130127,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "hot",
+                "impact": 0.05339658512290968,
+                "value": -0.09507567435503006,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_diff_srv_rate",
+                "impact": 0.05300932816122175,
+                "value": -0.4390781819820404,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_diff_host_rate",
+                "impact": 0.051505038453619124,
+                "value": 0.42160746455192566,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_count",
+                "impact": 0.04352474136406032,
+                "value": 1.2587542533874512,
+                "sign": "increases_attack"
+            }
+        ],
+        "shap_values": {},
+        "shap_image": null,
+        "meaning": "A Denial-of-Service attack aims to overwhelm a system or service with excessive traffic to cause disruption.",
+        "prevention": [
+            "Enable rate limiting on servers.",
+            "Use firewall and WAF filtering rules.",
+            "Deploy network-level anomaly detection.",
+            "Block repeated malicious IPs."
+        ]
+    },
+    "evt_7119cdaf-c1fc-4ced-a62c-612656a61903": {
+        "raw_label": "back",
+        "grouped_label": "DoS",
+        "timestamp": "2025-11-22 07:25:42",
+        "features": [
+            {
+                "name": "logged_in",
+                "impact": 0.12315400388615544,
+                "value": 1.2356940507888794,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "hot",
+                "impact": 0.06848908852529939,
+                "value": -0.09507567435503006,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_serror_rate",
+                "impact": 0.0667563413342602,
+                "value": -0.624870777130127,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_count",
+                "impact": 0.05743761133640481,
+                "value": 0.7343425750732422,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_count",
+                "impact": 0.046219280380220565,
+                "value": 1.2587542533874512,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_diff_srv_rate",
+                "impact": 0.0431590783916767,
+                "value": -0.4390781819820404,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_rerror_rate",
+                "impact": 0.038459647307032996,
+                "value": -0.38763463497161865,
+                "sign": "increases_attack"
+            }
+        ],
+        "shap_values": {},
+        "shap_image": null,
+        "meaning": "A Denial-of-Service attack aims to overwhelm a system or service with excessive traffic to cause disruption.",
+        "prevention": [
+            "Enable rate limiting on servers.",
+            "Use firewall and WAF filtering rules.",
+            "Deploy network-level anomaly detection.",
+            "Block repeated malicious IPs."
+        ]
+    },
+    "evt_816d95e0-12af-4d5c-bc63-8b1bfedf7322": {
+        "raw_label": "back",
+        "grouped_label": "DoS",
+        "timestamp": "2025-11-22 07:26:27",
+        "features": [
+            {
+                "name": "logged_in",
+                "impact": 0.10009501170385819,
+                "value": 1.2356940507888794,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "hot",
+                "impact": 0.09507710569734118,
+                "value": -0.09507567435503006,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_srv_serror_rate",
+                "impact": 0.07546411684600368,
+                "value": -0.624870777130127,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_rerror_rate",
+                "impact": 0.05789667429369971,
+                "value": -0.38763463497161865,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_count",
+                "impact": 0.05360458153322077,
+                "value": 0.11945927888154984,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "dst_host_serror_rate",
+                "impact": 0.045735202168953305,
+                "value": -0.6395319104194641,
+                "sign": "increases_attack"
+            },
+            {
+                "name": "srv_serror_rate",
+                "impact": 0.0410195389783913,
+                "value": -0.6319290399551392,
+                "sign": "increases_attack"
+            }
+        ],
+        "shap_values": {},
+        "shap_image": null,
+        "meaning": "A Denial-of-Service attack aims to overwhelm a system or service with excessive traffic to cause disruption.",
+        "prevention": [
+            "Enable rate limiting on servers.",
+            "Use firewall and WAF filtering rules.",
+            "Deploy network-level anomaly detection.",
+            "Block repeated malicious IPs."
+        ]
+    }
+}

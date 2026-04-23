@@ -1,0 +1,15 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+# The chmod command is no longer needed here
+RUN npm install
+
+COPY . .
+
+EXPOSE 5173
+
+# The CMD here will be overridden by docker-compose, but it's good practice
+CMD ["npm", "run", "dev"]

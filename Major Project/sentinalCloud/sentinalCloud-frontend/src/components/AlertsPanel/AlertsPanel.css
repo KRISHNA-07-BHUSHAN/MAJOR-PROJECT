@@ -1,0 +1,92 @@
+/* Renamed classes to match AlertsPanel.jsx and added confidence style */
+.alerts-panel-container {
+  width: 100%;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  /* --- UPDATED FOR STICKY HEADER --- */
+  max-height: 400px; /* Use the same max-height as EventQueue */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Hide overflow on the main container */
+  /* --- END UPDATE --- */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* .card-title is already styled by PageStyles.css */
+/* --- NEW: Make sure header doesn't shrink --- */
+.alerts-panel-container .card-title {
+  flex-shrink: 0;
+}
+/* --- END NEW --- */
+
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* --- UPDATED FOR STICKY HEADER --- */
+  flex-grow: 1; /* Allow the list to fill available space */
+  overflow-y: auto; /* Make THIS element scroll */
+  overflow-x: hidden; /* --- NEW: Hides horizontal scrollbar --- */
+  min-height: 0; /* Fix flexbox overflow */
+  /* --- END UPDATE --- */
+}
+
+.activity-list-item {
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+  border-left: 3px solid transparent; /* For accent color */
+}
+
+/* This class isn't used by the new logic, but left here */
+.activity-list-item.attack {
+  background-color: rgba(255, 59, 59, 0.15);
+  border-left-color: var(--button-bg);
+}
+
+.activity-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Space between title and time/confidence */
+}
+
+.activity-item-title {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.activity-item-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary); /* Use secondary text */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between time and confidence */
+}
+
+/* --- NEW STYLE for confidence --- */
+.activity-item-confidence {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+/* --- End New Style --- */
+
+.no-alerts { /* Renamed from .no-alerts-message */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Allow message to fill space if list is empty */
+  height: 100%; /* Ensure it tries to fill */
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1rem;
+  min-height: 100px; /* Ensure message area has some height */
+}
+
+/* The .severity-badge styles are in your global PageStyles.css, so no change is needed here */

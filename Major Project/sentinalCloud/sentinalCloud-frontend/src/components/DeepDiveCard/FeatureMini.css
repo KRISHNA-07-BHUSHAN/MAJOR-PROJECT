@@ -1,0 +1,97 @@
+/* Refined FeatureMini.css (Using App.css Variables) */
+
+/* --- REMOVED Redundant :root block --- */
+/* --- REMOVED Redundant .dark block --- */
+
+
+.feature-mini {
+  display: flex;
+  flex-direction: column; /* Stack info and impact bar */
+  padding: 0.5rem 0.75rem; /* 8px 12px */
+  background-color: var(--bg-tertiary); /* Use tertiary background for slight contrast */
+  border-radius: 4px;
+  font-size: 0.8125rem; /* 13px */
+  border: 1px solid var(--border-color); /* Use global border */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  cursor: default; /* Indicate it's informational */
+}
+
+/* Optional: Slightly darker hover for dark theme, lighter for light theme */
+.feature-mini:hover {
+  /* You might need a slightly different variable or adjust opacity */
+  /* background-color: var(--feature-hover-bg); */
+  border-color: var(--text-muted); /* Example: Use muted text color for hover border */
+}
+
+.feature-mini__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem; /* Space between text and bar */
+  min-width: 0; /* Prevent overflow issues in flex */
+}
+
+.feature-mini__name {
+  color: var(--text-secondary); /* Use global secondary text */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 0.5rem; /* Space before value */
+  flex-shrink: 1; /* Allow name to shrink if needed */
+}
+
+.feature-mini__value {
+  font-weight: 500;
+  color: var(--text-primary); /* Use global primary text */
+  white-space: nowrap;
+  flex-shrink: 0; /* Keep value from shrinking */
+}
+
+/* Impact Visualization Styles */
+.feature-mini__impact-viz {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between bar and value */
+  height: 12px; /* Fixed height for consistency */
+}
+
+/* Container for the impact bar visualization */
+.feature-mini__impact-bar-container {
+    height: 6px; /* Height of the container/track */
+    background-color: var(--bg-tertiary); /* Use tertiary for track */
+    border-radius: 3px;
+    flex-grow: 1; /* Allow container to take space */
+    position: relative;
+    overflow: hidden;
+}
+
+/* The actual colored impact bar */
+.feature-mini__impact-bar {
+  position: absolute;
+  top: 0;
+  left: 0; /* Bars grow from left */
+  height: 100%;
+  border-radius: 3px;
+  /* background-color is set via inline style based on impact direction */
+  /* width is set via inline style based on impact magnitude */
+  transition: width 0.3s ease;
+}
+
+
+.feature-mini__impact-value {
+  font-size: 0.75rem; /* Smaller text for impact */
+  color: var(--text-secondary); /* Use global secondary text */
+  font-weight: 500;
+  min-width: 40px; /* Ensure space for the number */
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Define positive/negative colors using global variables */
+/* These might be needed if inline style doesn't set color directly */
+.feature-mini__impact-bar.positive {
+   background-color: var(--success-color); /* Or --severity-low-text */
+}
+.feature-mini__impact-bar.negative {
+   background-color: var(--error-color); /* Or --severity-high-text */
+}

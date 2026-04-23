@@ -1,0 +1,12 @@
+names:
+- Bench
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: bench-kjx1x
+  url: https://universe.roboflow.com/newplatform/bench-kjx1x/dataset/1
+  version: 1
+  workspace: newplatform
+test: ../test/images
+train: ../train/images
+val: ../valid/images

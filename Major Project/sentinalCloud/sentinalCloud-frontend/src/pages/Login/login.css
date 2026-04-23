@@ -1,0 +1,251 @@
+/* Background gradient */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0f16;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, #1b2735, #090c10);
+    filter: blur(40px);
+    z-index: -1;
+}
+
+
+/* Login container */
+.login-container {
+    width: 350px;
+    margin: 8% auto;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Title */
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #8aa0b3;
+    margin-bottom: 25px;
+}
+
+/* Card style */
+.login-box {
+    background: rgba(20, 30, 45, 0.75);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border-radius: 8px;
+    border: 1px solid #293241;
+    background: #141b27;
+    color: #d0d8e1;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #4091ff;
+}
+
+/* Password eye icon */
+.password-wrap {
+    position: relative;
+}
+
+.toggle-pass {
+    position: absolute;
+    right: 12px;
+    top: 16px;
+    cursor: pointer;
+    color: #9aa7b6;
+    font-size: 17px;
+}
+
+/* Links */
+.links {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.links a {
+    color: #4091ff;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4091ff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.login-btn:hover {
+    background: #2273db;
+}
+
+/* Register text */
+.register-text {
+    margin-top: 15px;
+    color: #9fa9b5;
+}
+
+.register-text a {
+    color: #4091ff;
+    text-decoration: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.error-text {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.password-rules {
+    background: rgba(255,255,255,0.05);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.rule {
+    color: #b6c2d1;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+.rule.valid {
+    color: #4dffa6;
+}
+.password-error {
+    font-size: 13px;
+    margin: -10px 0 10px;
+    color: #ff4d4d; /* red by default */
+}
+
+.password-error.valid {
+    color: #36ff8a; /* green when all conditions satisfied */
+}
+
+/* MODAL OVERLAY */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    z-index: 999;
+}
+
+/* MODAL BOX */
+.modal-box {
+    background: rgba(15, 22, 30, 0.95);
+    padding: 25px 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* TITLE */
+.modal-box h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* ROLE BUTTONS */
+.role-btn {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    background: #4091ff;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.role-btn:hover {
+    background: #2a74db;
+}
+
+/* CANCEL BUTTON */
+.close-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: #222a35;
+    border: 1px solid #555;
+    color: #bbb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: #303a45;
+}
+/* Forgot password input */
+.forgot-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #293241;
+    background: #141b27;
+    color: #d0d8e1;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.forgot-input:focus {
+    border-color: #4091ff;
+}
+

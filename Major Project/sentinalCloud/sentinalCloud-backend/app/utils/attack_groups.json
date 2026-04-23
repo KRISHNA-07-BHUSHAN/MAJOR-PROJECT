@@ -1,0 +1,82 @@
+{
+  "normal": "Normal",
+  "Normal": "Normal",
+  "BENIGN": "Normal",
+  "Benign": "Normal",
+
+  "neptune": "DoS",
+  "smurf": "DoS",
+  "back": "DoS",
+  "pod": "DoS",
+  "teardrop": "DoS",
+  "land": "DoS",
+  "dos": "DoS",
+  "DoS": "DoS",
+
+  "DoS Hulk": "DoS",
+  "DoS GoldenEye": "DoS",
+  "DoS slowloris": "DoS",
+  "DoS Slowhttptest": "DoS",
+  "DoS Heartbleed": "DoS",
+
+  "DDoS": "DDoS",
+  "ddos": "DDoS",
+
+  "ipsweep": "Scan",
+  "nmap": "Scan",
+  "satan": "Scan",
+  "scanning": "Scan",
+  "Scan": "Scan",
+  "PortScan": "Scan",
+
+  "guess_passwd": "Brute Force",
+  "FTP-Patator": "Brute Force",
+  "SSH-Patator": "Brute Force",
+  "password": "Brute Force",
+
+  "Web Attack – Brute Force": "Brute Force",
+  "Web Attack - Brute Force": "Brute Force",
+  "Web Attack — Brute Force": "Brute Force",
+
+  "sqlattack": "SQL Injection",
+  "injection": "SQL Injection",
+  "Web Attack – SQL Injection": "SQL Injection",
+  "Web Attack - SQL Injection": "SQL Injection",
+  "Web Attack — SQL Injection": "SQL Injection",
+
+  "XSS": "XSS",
+  "xss": "XSS",
+  "Web Attack – XSS": "XSS",
+  "Web Attack - XSS": "XSS",
+  "Web Attack — XSS": "XSS",
+
+  "Bot": "Botnet",
+  "bot": "Botnet",
+  "Botnet": "Botnet",
+
+  "backdoor": "Backdoor",
+  "Backdoor": "Backdoor",
+
+  "mitm": "MITM",
+  "MITM": "MITM",
+
+  "ransomeware": "Ransomware",
+  "ransomware": "Ransomware",
+  "Ransomware": "Ransomware",
+
+  "Privilege Escalation": "Privilege Escalation",
+  "buffer_overflow": "Privilege Escalation",
+  "loadmodule": "Privilege Escalation",
+  "perl": "Privilege Escalation",
+  "rootkit": "Privilege Escalation",
+  "xterm": "Privilege Escalation",
+  "multihop": "Privilege Escalation",
+  "Infiltration": "Privilege Escalation",
+
+  "warezclient": "Other",
+  "warezmaster": "Other",
+  "phf": "Other",
+  "spy": "Other",
+
+  "Other": "Other"
+}

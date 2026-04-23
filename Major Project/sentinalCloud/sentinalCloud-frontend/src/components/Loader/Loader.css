@@ -1,0 +1,35 @@
+/* The .loader class creates the spinning circle */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--text-color);
+  border-bottom-color: var(--button-bg); /* Use an accent color for the spinning part */
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+/* The @keyframes rule defines the spinning animation */
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: A container to center the loader on the page or within a component */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Position it on top of other content */
+  top: 0;
+  left: 0;
+  background-color: rgba(18, 18, 18, 0.5); /* Semi-transparent overlay */
+  z-index: 1000;
+}
